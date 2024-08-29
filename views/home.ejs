@@ -1,0 +1,11 @@
+<a href="/login">Login Here</a>
+<a href="/register">Sign Up Here</a>
+
+<ul>
+    <% messages.forEach(message => { %>
+     <li>
+        <h1>Title: <%= message.title %></h1>
+        <h2>Message: <%= message.text %></h2>
+     </li>
+    <% }) %>
+</ul>

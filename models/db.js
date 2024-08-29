@@ -1,7 +1,7 @@
-const { Pool } = require("pg");
-const session = require("express-session");
-const pgSession = require("connect-pg-simple")(session);
-const dotenv = require("dotenv");
+const { Pool } = require('pg');
+const session = require('express-session');
+const pgSession = require('connect-pg-simple')(session);
+const dotenv = require('dotenv');
 
 dotenv.config();
 
@@ -11,12 +11,15 @@ const pool = new Pool({
   host: process.env.PGHOST,
   port: process.env.PGPORT,
   database: process.env.PGDATABASE,
+  ssl: {
+    sslmode: 'require',
+  },
 });
 
 const sessionConnection = session({
   store: new pgSession({
     pool: pool,
-    tableName: "session",
+    tableName: 'sessions',
   }),
   secret: process.env.SECRET,
   resave: false,

@@ -1,0 +1,30 @@
+<% if (errors) { %>
+  <div>
+    <p>Please correct the following errors:</p>
+    <ul>
+      <% errors.forEach(error => { %>
+        <li><%= error.msg %></li>
+      <% }); %>
+    </ul>
+  </div>
+<% } %>
+<form action="/register" method="post">
+  <label>
+    First Name:
+    <input type="text" name="firstName" />
+  </label>
+  <label>
+    Last Name:
+    <input type="text" name="lastName" />
+  </label>
+  <label>
+    Email for Login:
+    <input type="text" name="email" required />
+  </label>
+  <label>
+    Password:
+    <input type="password" name="password" required />
+  </label>
+  <button type="submit">Sign Up</button>
+</form>
+<a href="/">Home Page</a>
